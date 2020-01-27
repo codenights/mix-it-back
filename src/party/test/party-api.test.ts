@@ -9,14 +9,16 @@ describe('Integration | API | Host', () => {
     app = createTestServer()
   })
 
-  describe('GET /hosts', () => {
-    it('should return 200 OK', async () => {
-      const { body, status, type } = await request(app).get('/hosts')
-      expect(status).toBe(200)
+  describe('POST /parties', () => {
+    it('should return 201 Created', async () => {
+      const { body, status, type } = await request(app)
+        .post('/parties')
+        .set('Content-Type', 'application/json')
+      expect(status).toBe(201)
       expect(type).toBe('application/json')
       expect(body).toStrictEqual({
-        partyId: expect.any(String),
-        playlist: ['6OFHXmiZP38', '4IMaIbfAFLY', 'zD80w-mPrKw']
+        id: expect.any(String),
+        playlist: []
       })
     })
   })
