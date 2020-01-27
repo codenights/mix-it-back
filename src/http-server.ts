@@ -1,7 +1,8 @@
 import Koa from 'koa'
+import bodyParser from 'koa-bodyparser'
 
 import config from './config'
-import host from './host'
+import party from './party'
 
 export interface Server {
   callback: any
@@ -16,8 +17,11 @@ export function createServer(opts: ServerOptions = config): Server {
   const koa = new Koa()
   const listen = (port: number) => new Promise(resolve => koa.listen(port, resolve))
 
+  // Register middlewares
+  koa.use(bodyParser())
+
   // Register API modules
-  koa.use(host)
+  koa.use(party)
   return {
     callback: koa.callback(),
     async start(): Promise<number> {

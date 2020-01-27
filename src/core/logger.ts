@@ -1,6 +1,6 @@
 import { createLogger, LoggerOptions, transports } from 'winston'
 
-type LoggerFn = (message: string) => void
+type LoggerFn = (message: string, context?: object) => void
 interface Logger {
   debug: LoggerFn
   info: LoggerFn
