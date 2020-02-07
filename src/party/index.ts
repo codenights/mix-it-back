@@ -1,3 +1,5 @@
-import party from './http/party-router'
+import partyModule from './http/party-router'
 
-export default party
+export * from './party'
+
+export default partyModule

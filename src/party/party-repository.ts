@@ -3,6 +3,10 @@ import Nedb from 'nedb'
 import { Party } from './party'
 import logger from '../core/logger'
 
+function toInfra(party: Party): InfraParty {
+
+}
+
 export interface PartyRepository {
   create(party: Party): Promise<Party>
   addSong(id: string, song: string): Promise<Party>

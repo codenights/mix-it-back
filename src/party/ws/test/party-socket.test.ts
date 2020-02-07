@@ -14,7 +14,7 @@ describe('Integration | Socket | Party ', () => {
     namespace = createPartyNamespace(server)
   })
 
-  it('should connect to the namespace /party', done => {
+  it('connects to the namespace /party', done => {
     expect.assertions(3)
     const socket = client.connect('http://localhost:3000/party', {
       query: {
@@ -40,6 +40,7 @@ describe('Integration | Socket | Party ', () => {
         host: null,
         playlist: []
       })
+      console.log(party)
       socket = client.connect('http://localhost:3000/party', {
         query: {
           clientType: 'host',
@@ -48,7 +49,7 @@ describe('Integration | Socket | Party ', () => {
       })
     })
 
-    it('should emit a "playlist" event', done => {
+    it('emits a "playlist" event', done => {
       expect.assertions(1)
       socket.on('connect', () => {
         socket.on('playlist', (playlist: string[]) => {

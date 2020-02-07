@@ -2,7 +2,7 @@ import Koa from 'koa'
 import bodyParser from 'koa-bodyparser'
 
 import config from './config'
-import party from './party'
+import partyModule from './party'
 
 export interface Server {
   callback: any
@@ -21,7 +21,7 @@ export function createServer(opts: ServerOptions = config): Server {
   koa.use(bodyParser())
 
   // Register API modules
-  koa.use(party)
+  koa.use(partyModule)
   return {
     callback: koa.callback(),
     async start(): Promise<number> {
