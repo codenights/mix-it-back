@@ -40,11 +40,10 @@ describe('Integration | Socket | Party ', () => {
         host: null,
         playlist: []
       })
-      console.log(party)
       socket = client.connect('http://localhost:3000/party', {
         query: {
           clientType: 'host',
-          partyId: 'uuid'
+          partyId: party.id
         }
       })
     })
@@ -57,7 +56,6 @@ describe('Integration | Socket | Party ', () => {
           done()
         })
         socket.emit('song:submit', 'abc')
-        socket.emit('song:submit', 'def')
       })
     })
   })

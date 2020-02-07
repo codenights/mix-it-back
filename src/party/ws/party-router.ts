@@ -25,10 +25,8 @@ export function createPartyNamespace(server: Server): Namespace {
 
     // When a user submits a song
     socket.on('song:submit', async (song: string) => {
-      // Add the song to the playlist
       const party: Party = await partyRepository.addSong(partyId, song)
       logger.info(`Added song ${song} to the party ${partyId}`)
-      // Return the new playlist
       socket.emit('playlist', party.playlist)
     })
 

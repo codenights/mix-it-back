@@ -14,7 +14,9 @@ export default function createPartyController(partyRepository: PartyRepository):
      */
     async create(ctx): Promise<void> {
       const body = ctx.request.body
-      const party = await partyRepository.create(body)
+      const party = await partyRepository.create({
+        playlist: []
+      })
       ctx.status = constants.HTTP_STATUS_CREATED
       ctx.body = party
       ctx.set('Location', `/parties/${party.id}`)
