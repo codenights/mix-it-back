@@ -2538,7 +2538,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">Logger<wbr>Fn<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, context<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/0acc8aa/src/core/logger.ts#L3">core/logger.ts:3</a></li>
+						<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/aa6cbfe/src/core/logger.ts#L3">core/logger.ts:3</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-type-declaration">
@@ -2572,7 +2572,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">Party<wbr>Model<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Exclude</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/party.html" class="tsd-signature-type">Party</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">"id"</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-symbol">{ </span>_id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/0acc8aa/src/party/party-repository.ts#L6">party/party-repository.ts:6</a></li>
+						<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/aa6cbfe/src/party/party-repository.ts#L6">party/party-repository.ts:6</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -2582,7 +2582,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">Playlist<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/0acc8aa/src/party/playlist.ts#L1">party/playlist.ts:1</a></li>
+						<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/aa6cbfe/src/party/playlist.ts#L1">party/playlist.ts:1</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -2595,7 +2595,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">ENVIRONMENT<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = process.env.NODE_ENV</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/0acc8aa/src/core/secrets.ts#L12">core/secrets.ts:12</a></li>
+						<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/aa6cbfe/src/core/secrets.ts#L12">core/secrets.ts:12</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -2605,7 +2605,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">MONGODB_<wbr>URI<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = prod ? process.env[&#x27;MONGODB_URI&#x27;] : process.env[&#x27;MONGODB_URI_LOCAL&#x27;]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/0acc8aa/src/core/secrets.ts#L16">core/secrets.ts:16</a></li>
+						<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/aa6cbfe/src/core/secrets.ts#L16">core/secrets.ts:16</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -2615,7 +2615,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">SESSION_<wbr>SECRET<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = process.env[&#x27;SESSION_SECRET&#x27;]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/0acc8aa/src/core/secrets.ts#L15">core/secrets.ts:15</a></li>
+						<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/aa6cbfe/src/core/secrets.ts#L15">core/secrets.ts:15</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -2625,7 +2625,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">config<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Config</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = convict({env: {env: &#x27;NODE_ENV&#x27;,format: [&#x27;production&#x27;, &#x27;test&#x27;, &#x27;development&#x27;],default: &#x27;development&#x27;},port: {env: &#x27;PORT&#x27;,format: &#x27;port&#x27;,default: 3000},log: {level: {env: &#x27;LOG_LEVEL&#x27;,format: [&#x27;debug&#x27;, &#x27;info&#x27;, &#x27;warn&#x27;, &#x27;error&#x27;],default: &#x27;debug&#x27;}}})</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/0acc8aa/src/config.ts#L6">config.ts:6</a></li>
+						<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/aa6cbfe/src/config.ts#L6">config.ts:6</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -2635,7 +2635,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">db<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Nedb</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = new Nedb()</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/0acc8aa/src/party/party-repository.ts#L70">party/party-repository.ts:70</a></li>
+						<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/aa6cbfe/src/party/party-repository.ts#L70">party/party-repository.ts:70</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -2645,7 +2645,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">logger<span class="tsd-signature-symbol">:</span> <a href="interfaces/logger.html" class="tsd-signature-type">Logger</a><span class="tsd-signature-symbol"> = createLogger(options)</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/0acc8aa/src/core/logger.ts#L20">core/logger.ts:20</a></li>
+						<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/aa6cbfe/src/core/logger.ts#L20">core/logger.ts:20</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -2655,7 +2655,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">party<wbr>Controller<span class="tsd-signature-symbol">:</span> <a href="interfaces/partycontroller.html" class="tsd-signature-type">PartyController</a><span class="tsd-signature-symbol"> = createPartyController(partyRepository)</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/0acc8aa/src/party/http/party-router.ts#L8">party/http/party-router.ts:8</a></li>
+						<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/aa6cbfe/src/party/http/party-router.ts#L8">party/http/party-router.ts:8</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -2665,8 +2665,8 @@ img {
 				<div class="tsd-signature tsd-kind-icon">party<wbr>Repository<span class="tsd-signature-symbol">:</span> <a href="interfaces/partyrepository.html" class="tsd-signature-type">PartyRepository</a><span class="tsd-signature-symbol"> = createPartyRepository()</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/0acc8aa/src/party/http/party-router.ts#L7">party/http/party-router.ts:7</a></li>
-						<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/0acc8aa/src/party/ws/party-router.ts#L13">party/ws/party-router.ts:13</a></li>
+						<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/aa6cbfe/src/party/http/party-router.ts#L7">party/http/party-router.ts:7</a></li>
+						<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/aa6cbfe/src/party/ws/party-router.ts#L13">party/ws/party-router.ts:13</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -2676,7 +2676,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">party<wbr>Router<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Router</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = new Router().post(&#x27;/parties&#x27;, partyController.create)</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/0acc8aa/src/party/http/party-router.ts#L9">party/http/party-router.ts:9</a></li>
+						<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/aa6cbfe/src/party/http/party-router.ts#L9">party/http/party-router.ts:9</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -2686,7 +2686,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">prod<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = ENVIRONMENT &#x3D;&#x3D;&#x3D; &#x27;production&#x27;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/0acc8aa/src/core/secrets.ts#L13">core/secrets.ts:13</a></li>
+						<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/aa6cbfe/src/core/secrets.ts#L13">core/secrets.ts:13</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -2703,7 +2703,7 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/0acc8aa/src/app.ts#L21">app.ts:21</a></li>
+								<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/aa6cbfe/src/app.ts#L21">app.ts:21</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2726,7 +2726,7 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/0acc8aa/src/http-server.ts#L13">http-server.ts:13</a></li>
+								<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/aa6cbfe/src/http-server.ts#L13">http-server.ts:13</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2749,7 +2749,7 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/0acc8aa/src/party/http/party-controller.ts#L9">party/http/party-controller.ts:9</a></li>
+								<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/aa6cbfe/src/party/http/party-controller.ts#L9">party/http/party-controller.ts:9</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2772,7 +2772,7 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/0acc8aa/src/party/ws/party-router.ts#L15">party/ws/party-router.ts:15</a></li>
+								<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/aa6cbfe/src/party/ws/party-router.ts#L15">party/ws/party-router.ts:15</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2795,7 +2795,7 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/0acc8aa/src/party/party-repository.ts#L71">party/party-repository.ts:71</a></li>
+								<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/aa6cbfe/src/party/party-repository.ts#L71">party/party-repository.ts:71</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <a href="interfaces/partyrepository.html" class="tsd-signature-type">PartyRepository</a></h4>
@@ -2812,7 +2812,7 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/0acc8aa/src/websocket-server.ts#L7">websocket-server.ts:7</a></li>
+								<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/aa6cbfe/src/websocket-server.ts#L7">websocket-server.ts:7</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2835,7 +2835,7 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/0acc8aa/src/party/party-repository.ts#L8">party/party-repository.ts:8</a></li>
+								<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/aa6cbfe/src/party/party-repository.ts#L8">party/party-repository.ts:8</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2857,7 +2857,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/0acc8aa/src/core/logger.ts#L11">core/logger.ts:11</a></li>
+						<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/aa6cbfe/src/core/logger.ts#L11">core/logger.ts:11</a></li>
 					</ul>
 				</aside>
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -2866,7 +2866,7 @@ img {
 					<div class="tsd-signature tsd-kind-icon">transports<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">ConsoleTransportInstance</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">FileTransportInstance</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = [new transports.Console({level: process.env.NODE_ENV &#x3D;&#x3D;&#x3D; &#x27;production&#x27; ? &#x27;error&#x27; : &#x27;debug&#x27;}),new transports.File({ filename: &#x27;debug.log&#x27;, level: &#x27;debug&#x27; })]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/0acc8aa/src/core/logger.ts#L12">core/logger.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/aa6cbfe/src/core/logger.ts#L12">core/logger.ts:12</a></li>
 						</ul>
 					</aside>
 				</section>
