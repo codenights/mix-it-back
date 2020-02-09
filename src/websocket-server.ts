@@ -1,12 +1,19 @@
+import { Http2Server } from 'http2'
 import io, { Server } from 'socket.io'
-import logger from './core/logger'
 
-export function createWebsocketServer(): Server {
-  const server = io(3000)
-  server.on('connection', socket => {
+import logger from './core/logger'
+import createPartyNamespace from './party/ws/party-router'
+
+export function createWebsocketServer(http: Http2Server): Server {
+  const webSocketServer = io(http)
+
+  createPartyNamespace(webSocketServer)
+
+  webSocketServer.on('connection', socket => {
     logger.debug(`Socket ${socket.id} connected`)
   })
-  return server
+
+  return webSocketServer
 }
 
 export default createWebsocketServer
