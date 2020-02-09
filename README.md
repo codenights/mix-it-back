@@ -2,9 +2,35 @@
 
 [![Dependency Status](https://david-dm.org/Microsoft/TypeScript-Node-Starter.svg)](https://david-dm.org/Microsoft/TypeScript-Node-Starter) [![Build Status](https://travis-ci.org/Microsoft/TypeScript-Node-Starter.svg?branch=master)](https://travis-ci.org/Microsoft/TypeScript-Node-Starter)
 
-**Live Demo**: [https://typescript-node-starter.azurewebsites.net/](https://typescript-node-starter.azurewebsites.net/)
+# WebSocket connection
 
-![image](https://user-images.githubusercontent.com/820883/36764267-abbdb7f8-1be0-11e8-9678-2a9ea448d7f8.png)
+You must connect to the `/party` namespace specifying a `clientType` and a
+`partyId` in the handshake query as follows:
+
+```javascript
+import client from 'socket.io-client'
+
+const socket = client.connect(`http://localhost:${port}/party`, {
+  query: {
+    clientType: 'host' | 'client',
+    partyId: '<your party ID>'
+  }
+})
+```
+
+On connection, you will join the party if it exists. Otherwise, it will throw
+an error. You must create the party before using the REST API endpoint:
+```text
+POST /parties
+```
+
+## Events
+
+- `song:submit` with a string payload which is the song ID. You will eventually
+receive a `playlist` event with the new playlist, to which your song was added.
+The playlist is a list of strings representing the song IDs.
+
+# Intro
 
 The main purpose of this repository is to show a good end-to-end project setup and workflow for writing Node code in TypeScript.
 We will try to keep this as up-to-date as possible, but community contributions and recommendations for improvements are encouraged and will be most welcome.
