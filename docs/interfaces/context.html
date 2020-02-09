@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;party/http/party-controller&quot; | express-typescript-starter</title>
+	<title>Context | express-typescript-starter</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style type="text/css">/*! normalize.css v1.1.3 | MIT License | git.io/normalize */
@@ -2365,59 +2365,176 @@ img {
 </header>
 <nav class="tsd-navigation secondary">
 	<ul>
-		<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-			<a href="../interfaces/_party_http_party_controller_.partycontroller.html" class="tsd-kind-icon">Party<wbr>Controller</a>
+		<li class=" tsd-kind-class">
+			<a href="../classes/nedbpartyrepository.html" class="tsd-kind-icon">Nedb<wbr>Party<wbr>Repository</a>
 		</li>
-		<li class=" tsd-kind-function tsd-parent-kind-external-module">
-			<a href="_party_http_party_controller_.html#createpartycontroller" class="tsd-kind-icon">create<wbr>Party<wbr>Controller</a>
+		<li class=" tsd-kind-interface">
+			<a href="app.html" class="tsd-kind-icon">App</a>
+		</li>
+		<li class=" tsd-kind-interface">
+			<a href="appoptions.html" class="tsd-kind-icon">App<wbr>Options</a>
+		</li>
+		<li class="current tsd-kind-interface tsd-has-type-parameter">
+			<a href="context.html" class="tsd-kind-icon">Context</a>
+			<ul>
+				<li class=" tsd-kind-property tsd-parent-kind-interface">
+					<a href="context.html#data" class="tsd-kind-icon">data</a>
+				</li>
+				<li class=" tsd-kind-property tsd-parent-kind-interface">
+					<a href="context.html#event" class="tsd-kind-icon">event</a>
+				</li>
+				<li class=" tsd-kind-property tsd-parent-kind-interface">
+					<a href="context.html#socket" class="tsd-kind-icon">socket</a>
+				</li>
+			</ul>
+		</li>
+		<li class=" tsd-kind-interface">
+			<a href="logger.html" class="tsd-kind-icon">Logger</a>
+		</li>
+		<li class=" tsd-kind-interface">
+			<a href="nedbpartyrepositoryopts.html" class="tsd-kind-icon">Nedb<wbr>Party<wbr>Repository<wbr>Opts</a>
+		</li>
+		<li class=" tsd-kind-interface">
+			<a href="party.html" class="tsd-kind-icon">Party</a>
+		</li>
+		<li class=" tsd-kind-interface">
+			<a href="partycontroller.html" class="tsd-kind-icon">Party<wbr>Controller</a>
+		</li>
+		<li class=" tsd-kind-interface">
+			<a href="partyrepository.html" class="tsd-kind-icon">Party<wbr>Repository</a>
+		</li>
+		<li class=" tsd-kind-interface">
+			<a href="serveroptions.html" class="tsd-kind-icon">Server<wbr>Options</a>
+		</li>
+		<li class=" tsd-kind-type-alias">
+			<a href="../index.html#loggerfn" class="tsd-kind-icon">Logger<wbr>Fn</a>
+		</li>
+		<li class=" tsd-kind-type-alias">
+			<a href="../index.html#partymodel" class="tsd-kind-icon">Party<wbr>Model</a>
+		</li>
+		<li class=" tsd-kind-type-alias">
+			<a href="../index.html#playlist" class="tsd-kind-icon">Playlist</a>
+		</li>
+		<li class=" tsd-kind-variable">
+			<a href="../index.html#environment" class="tsd-kind-icon">ENVIRONMENT</a>
+		</li>
+		<li class=" tsd-kind-variable">
+			<a href="../index.html#mongodb_uri" class="tsd-kind-icon">MONGODB_<wbr>URI</a>
+		</li>
+		<li class=" tsd-kind-variable">
+			<a href="../index.html#session_secret" class="tsd-kind-icon">SESSION_<wbr>SECRET</a>
+		</li>
+		<li class=" tsd-kind-variable">
+			<a href="../index.html#config" class="tsd-kind-icon">config</a>
+		</li>
+		<li class=" tsd-kind-variable">
+			<a href="../index.html#db" class="tsd-kind-icon">db</a>
+		</li>
+		<li class=" tsd-kind-variable">
+			<a href="../index.html#logger" class="tsd-kind-icon">logger</a>
+		</li>
+		<li class=" tsd-kind-variable">
+			<a href="../index.html#partycontroller" class="tsd-kind-icon">party<wbr>Controller</a>
+		</li>
+		<li class=" tsd-kind-variable">
+			<a href="../index.html#partyrepository" class="tsd-kind-icon">party<wbr>Repository</a>
+		</li>
+		<li class=" tsd-kind-variable">
+			<a href="../index.html#partyrouter" class="tsd-kind-icon">party<wbr>Router</a>
+		</li>
+		<li class=" tsd-kind-variable">
+			<a href="../index.html#prod" class="tsd-kind-icon">prod</a>
+		</li>
+		<li class=" tsd-kind-function">
+			<a href="../index.html#createapp" class="tsd-kind-icon">create<wbr>App</a>
+		</li>
+		<li class=" tsd-kind-function">
+			<a href="../index.html#createhttpserver" class="tsd-kind-icon">create<wbr>Http<wbr>Server</a>
+		</li>
+		<li class=" tsd-kind-function">
+			<a href="../index.html#createpartycontroller" class="tsd-kind-icon">create<wbr>Party<wbr>Controller</a>
+		</li>
+		<li class=" tsd-kind-function">
+			<a href="../index.html#createpartynamespace" class="tsd-kind-icon">create<wbr>Party<wbr>Namespace</a>
+		</li>
+		<li class=" tsd-kind-function">
+			<a href="../index.html#createpartyrepository" class="tsd-kind-icon">create<wbr>Party<wbr>Repository</a>
+		</li>
+		<li class=" tsd-kind-function">
+			<a href="../index.html#createwebsocketserver" class="tsd-kind-icon">create<wbr>Websocket<wbr>Server</a>
+		</li>
+		<li class=" tsd-kind-function">
+			<a href="../index.html#frominfra" class="tsd-kind-icon">from<wbr>Infra</a>
+		</li>
+		<li class=" tsd-kind-object-literal">
+			<a href="../index.html#options" class="tsd-kind-icon">options</a>
 		</li>
 	</ul>
 </nav>
 <div class="container container-main">
 	<div class="content-wrap">
+		<section class="tsd-panel tsd-type-parameters">
+			<h3>Type parameters</h3>
+			<ul class="tsd-type-parameters">
+				<li>
+					<h4>T</h4>
+				</li>
+			</ul>
+		</section>
+		<section class="tsd-panel tsd-hierarchy">
+			<h3>Hierarchy</h3>
+			<ul class="tsd-hierarchy">
+				<li>
+					<span class="target">Context</span>
+				</li>
+			</ul>
+		</section>
 		<section class="tsd-panel-group tsd-index-group">
 			<h2>Index</h2>
 			<section class="tsd-panel tsd-index-panel">
 				<div class="tsd-index-content">
 					<section class="tsd-index-section ">
-						<h3>Interfaces</h3>
+						<h3>Properties</h3>
 						<ul class="tsd-index-list">
-							<li class="tsd-kind-interface tsd-parent-kind-external-module"><a href="../interfaces/_party_http_party_controller_.partycontroller.html" class="tsd-kind-icon">Party<wbr>Controller</a></li>
-						</ul>
-					</section>
-					<section class="tsd-index-section ">
-						<h3>Functions</h3>
-						<ul class="tsd-index-list">
-							<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_party_http_party_controller_.html#createpartycontroller" class="tsd-kind-icon">create<wbr>Party<wbr>Controller</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="context.html#data" class="tsd-kind-icon">data</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="context.html#event" class="tsd-kind-icon">event</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="context.html#socket" class="tsd-kind-icon">socket</a></li>
 						</ul>
 					</section>
 				</div>
 			</section>
 		</section>
 		<section class="tsd-panel-group tsd-member-group ">
-			<h2>Functions</h2>
-			<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-				<a name="createpartycontroller" class="tsd-anchor"></a>
-				<h3>create<wbr>Party<wbr>Controller</h3>
-				<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-					<li class="tsd-signature tsd-kind-icon">create<wbr>Party<wbr>Controller<span class="tsd-signature-symbol">(</span>partyRepository<span class="tsd-signature-symbol">: </span><a href="../interfaces/_party_party_repository_.partyrepository.html" class="tsd-signature-type">PartyRepository</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_party_http_party_controller_.partycontroller.html" class="tsd-signature-type">PartyController</a></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/d21c52d/src/party/http/party-controller.ts#L9">party/http/party-controller.ts:9</a></li>
-							</ul>
-						</aside>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>partyRepository: <a href="../interfaces/_party_party_repository_.partyrepository.html" class="tsd-signature-type">PartyRepository</a></h5>
-							</li>
-						</ul>
-						<h4 class="tsd-returns-title">Returns <a href="../interfaces/_party_http_party_controller_.partycontroller.html" class="tsd-signature-type">PartyController</a></h4>
-					</li>
-				</ul>
+			<h2>Properties</h2>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+				<a name="data" class="tsd-anchor"></a>
+				<h3>data</h3>
+				<div class="tsd-signature tsd-kind-icon">data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/0acc8aa/src/party/ws/party-router.ts#L10">party/ws/party-router.ts:10</a></li>
+					</ul>
+				</aside>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+				<a name="event" class="tsd-anchor"></a>
+				<h3>event</h3>
+				<div class="tsd-signature tsd-kind-icon">event<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/0acc8aa/src/party/ws/party-router.ts#L8">party/ws/party-router.ts:8</a></li>
+					</ul>
+				</aside>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+				<a name="socket" class="tsd-anchor"></a>
+				<h3>socket</h3>
+				<div class="tsd-signature tsd-kind-icon">socket<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Socket</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/codenights/mix-it-back/blob/0acc8aa/src/party/ws/party-router.ts#L9">party/ws/party-router.ts:9</a></li>
+					</ul>
+				</aside>
 			</section>
 		</section>
 		<footer class="with-border-bottom">
