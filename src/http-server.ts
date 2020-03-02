@@ -1,7 +1,9 @@
+import cors from '@koa/cors'
 import { createServer, Server as HttpServer } from 'http'
 import { Http2Server } from 'http2'
 import Koa from 'koa'
 import bodyParser from 'koa-bodyparser'
+import morgan from 'koa-morgan'
 
 import config from './config'
 import partyModule from './party'
@@ -14,7 +16,9 @@ export function createHttpServer(opts: ServerOptions = config): HttpServer | Htt
   const koa = new Koa()
 
   // Register middlewares
+  koa.use(morgan('dev'))
   koa.use(bodyParser())
+  koa.use(cors())
 
   // Register API modules
   koa.use(partyModule)

@@ -12,6 +12,7 @@ const fromInfra = (model: PartyModel): Party => ({
 
 export interface PartyRepository {
   create(party: Partial<Party>): Promise<Party>
+  get(id: string): Promise<Party | null>
   addSong(id: string, song: string): Promise<Party>
   removeAll(): Promise<void>
 }
@@ -32,6 +33,18 @@ class NedbPartyRepository implements PartyRepository {
       this.db.insert(party, (err: Error, data: PartyModel) => {
         if (err) return reject(err)
         resolve(fromInfra(data))
+      })
+    })
+  }
+
+  async get(id: string): Promise<Party | null> {
+    return new Promise((resolve, reject) => {
+      this.db.findOne({ _id: id }, (err: Error, doc: PartyModel) => {
+        if (err) return reject(err)
+        if (!doc) {
+          return resolve(null)
+        }
+        return resolve(fromInfra(doc))
       })
     })
   }

@@ -4,34 +4,59 @@ import logger from '../../core/logger'
 import createPartyRepository, { PartyRepository } from '../party-repository'
 import { Party } from '../party'
 
-interface Context<T> {
-  event: string
-  socket: Socket
-  data: T
-}
-
 const partyRepository: PartyRepository = createPartyRepository()
 
+interface PartyJoinOptions {
+  clientType: 'host' | 'client'
+  partyId: string
+}
+
 export function createPartyNamespace(server: Server): Namespace {
-  return server.of('/party').on('connection', (socket: Socket) => {
-    const { clientType, partyId } = socket.handshake.query
-    logger.debug(`User with socket ${socket.id} connected ; clientType = ${clientType} ; partyId = ${partyId}`)
-
-    // Join the room
-    socket.join(partyId, err => {
-      if (err) throw err
-      logger.debug(`User with ${socket.id} joined the party ${partyId}`)
+  function cleanUp(socket: Socket): void {
+    socket.leaveAll()
+    const events: string[] = ['playlist', 'song:submit']
+    events.forEach(event => {
+      socket.removeAllListeners(event)
     })
+  }
 
-    socket.on('song:submit', async (song: string) => {
-      const party: Party = await partyRepository.addSong(partyId, song)
-      logger.info(`Added song ${song} to the party ${partyId}`)
-      socket.emit('playlist', party.playlist)
+  function setUp(socket: Socket): void {
+    socket.on('room:join', (opts: PartyJoinOptions, onRoomJoined: Function) => {
+      // TODO: validate every input
+      const { partyId } = opts
+      const room = () => socket.nsp.to(partyId)
+
+      // Join the room
+      socket.join(partyId, err => {
+        if (err) throw err
+        logger.debug(`Socket ${socket.id} joined the party ${partyId}`)
+
+        socket.on('song:submit', async (song: string, onSongSubmitted: Function) => {
+          const party: Party = await partyRepository.addSong(partyId, song)
+          logger.info(`Added song ${song} to the party ${partyId}`)
+          room().emit('playlist', party.playlist)
+          onSongSubmitted()
+        })
+
+        socket.on('room:leave', () => {
+          socket.leave(partyId)
+          logger.info(`Socket ${socket.id} left the party ${partyId}`)
+          socket.broadcast.emit('room:left')
+          cleanUp(socket)
+          setUp(socket)
+        })
+
+        // Acknowledge the room was joined
+        onRoomJoined()
+      })
     })
+  }
 
-    // When a user disconnects
+  return server.of('/parties').on('connection', (socket: Socket) => {
+    setUp(socket)
+    // When a socket disconnects
     socket.on('disconnect', () => {
-      logger.debug(`User with socket ${socket.id} disconnected`)
+      logger.debug(`Socket ${socket.id} disconnected`)
     })
   })
 }

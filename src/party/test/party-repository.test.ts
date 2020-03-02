@@ -24,4 +24,14 @@ describe('Integration | Repository | Party', () => {
       })
     })
   })
+
+  describe('#get', () => {
+    it('gets a party', async () => {
+      const expected = await partyRepository.create({
+        playlist: ['abc']
+      })
+      const actual = await partyRepository.get(expected.id)
+      expect(actual).toStrictEqual(expected)
+    })
+  })
 })
