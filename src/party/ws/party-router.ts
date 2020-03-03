@@ -29,6 +29,9 @@ export function createPartyNamespace(server: Server): Namespace {
       // Join the room
       socket.join(partyId, err => {
         if (err) throw err
+
+        // TODO: check that the room exists
+
         logger.debug(`Socket ${socket.id} joined the party ${partyId}`)
 
         socket.on('song:submit', async (song: string, onSongSubmitted: Function) => {

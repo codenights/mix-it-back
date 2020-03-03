@@ -14,41 +14,37 @@ describe('Integration | Socket | Party ', () => {
     await app.start()
   })
 
-  describe('connects to the namespace /party', () => {
-    it('joins the party if it exists', done => {
-      expect.assertions(3)
-      const socket = client.connect(`http://localhost:${port}/party`, {
-        query: {
-          clientType: 'host',
-          partyId: 'uuid'
-        }
-      })
-      socket.on('connect', () => {
-        expect(socket).toBeDefined()
-        expect(socket.connected).toBeTruthy()
-        expect(socket.nsp).toBe('/party')
-        done()
-      })
-    })
-
-    it('throws an error if the party does not exist', done => {
-      expect.assertions(3)
-      const socket = client.connect(`http://localhost:${port}/party`, {
-        query: {
-          clientType: 'host',
-          partyId: 'uuid'
-        }
-      })
-      socket.on('connect', () => {
-        expect(socket).toBeDefined()
-        expect(socket.connected).toBeTruthy()
-        expect(socket.nsp).toBe('/party')
-        done()
-      })
+  it('connects to the namespace /parties', done => {
+    expect.assertions(3)
+    const socket = client.connect(`http://localhost:${port}/parties`)
+    socket.on('connect', () => {
+      expect(socket).toBeDefined()
+      expect(socket.connected).toBeTruthy()
+      expect(socket.nsp).toBe('/parties')
+      done()
     })
   })
 
-  describe.skip('join', () => {})
+  describe('room:join', () => {
+    let socket: SocketIOClient.Socket
+
+    beforeEach(done => {
+      socket = client.connect(`http://localhost:${port}/parties`)
+      socket.on('connect', done)
+    })
+
+    it('acknowledges the room was joined', done => {
+      socket.emit('room:join', { clientType: 'host', partyId: 'party' }, () => {
+        done()
+      })
+    })
+
+    it('emits an error if the party does not exist', done => {
+      socket.emit('room:join', { clientType: 'host', partyId: 'non existing party' }, err => {
+        expect(err).toBeInstanceOf(Error)
+      })
+    })
+  })
 
   describe('song:submit', () => {
     let socket: SocketIOClient.Socket
@@ -58,7 +54,7 @@ describe('Integration | Socket | Party ', () => {
       party = await createPartyRepository().create({
         playlist: []
       })
-      socket = client.connect(`http://localhost:${port}/party`, {
+      socket = client.connect(`http://localhost:${port}/parties`, {
         query: {
           clientType: 'host',
           partyId: party.id

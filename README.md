@@ -4,13 +4,13 @@
 
 # WebSocket connection
 
-You must connect to the `/party` namespace specifying a `clientType` and a
+You must connect to the `/parties` namespace specifying a `clientType` and a
 `partyId` in the handshake query as follows:
 
 ```javascript
 import client from 'socket.io-client'
 
-const socket = client.connect(`http://localhost:${port}/party`, {
+const socket = client.connect(`http://localhost:${port}/parties`, {
   query: {
     clientType: 'host' | 'client',
     partyId: '<your party ID>'
