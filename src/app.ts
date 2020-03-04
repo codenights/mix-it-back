@@ -4,7 +4,7 @@ import { Server as WebSocketServer } from 'socket.io'
 
 import createHttpServer from './http-server'
 import createWebsocketServer from './websocket-server'
-import logger from './core/logger'
+import { logger } from './core'
 import config from './config'
 
 interface App {

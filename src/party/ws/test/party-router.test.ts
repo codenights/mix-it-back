@@ -4,6 +4,7 @@ import createPartyRepository from '../../party-repository'
 import { Party } from '../../party'
 import getPort from 'get-port'
 import createApp from '../../../app'
+import { MissingPartyError } from '../../../core/errors'
 
 describe('Integration | Socket | Party ', () => {
   let port: number
@@ -27,21 +28,28 @@ describe('Integration | Socket | Party ', () => {
 
   describe('room:join', () => {
     let socket: SocketIOClient.Socket
+    let party: Party
 
-    beforeEach(done => {
+    beforeEach(async done => {
       socket = client.connect(`http://localhost:${port}/parties`)
+      party = await createPartyRepository().create({
+        playlist: []
+      })
       socket.on('connect', done)
     })
 
     it('acknowledges the room was joined', done => {
-      socket.emit('room:join', { clientType: 'host', partyId: 'party' }, () => {
-        done()
-      })
+      socket.emit('room:join', { clientType: 'host', partyId: party.id }, done)
     })
 
     it('emits an error if the party does not exist', done => {
-      socket.emit('room:join', { clientType: 'host', partyId: 'non existing party' }, err => {
-        expect(err).toBeInstanceOf(Error)
+      expect.assertions(1)
+      socket.emit('room:join', { clientType: 'host', partyId: 'non existing party' }, (err: MissingPartyError) => {
+        expect(err).toMatchObject({
+          name: 'MissingPartyError',
+          message: expect.any(String)
+        })
+        done()
       })
     })
   })
@@ -50,27 +58,23 @@ describe('Integration | Socket | Party ', () => {
     let socket: SocketIOClient.Socket
     let party: Party
 
-    beforeEach(async () => {
+    beforeEach(async done => {
+      socket = client.connect(`http://localhost:${port}/parties`)
       party = await createPartyRepository().create({
         playlist: []
       })
-      socket = client.connect(`http://localhost:${port}/parties`, {
-        query: {
-          clientType: 'host',
-          partyId: party.id
-        }
+      socket.on('connect', () => {
+        socket.emit('room:join', { clientType: 'host', partyId: party.id }, done)
       })
     })
 
     it('emits a "playlist" event', done => {
       expect.assertions(1)
-      socket.on('connect', () => {
-        socket.on('playlist', (playlist: string[]) => {
-          expect(playlist).toStrictEqual(['abc'])
-          done()
-        })
-        socket.emit('song:submit', 'abc')
+      socket.on('playlist', (playlist: string[]) => {
+        expect(playlist).toStrictEqual(['abc'])
+        done()
       })
+      socket.emit('song:submit', 'abc')
     })
   })
 })

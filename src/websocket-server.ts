@@ -1,7 +1,7 @@
 import { Http2Server } from 'http2'
 import io, { Server } from 'socket.io'
 
-import logger from './core/logger'
+import { logger } from './core'
 import createPartyNamespace from './party/ws/party-router'
 
 export function createWebsocketServer(http: Http2Server): Server {

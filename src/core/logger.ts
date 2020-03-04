@@ -17,10 +17,8 @@ const options: LoggerOptions = {
   ]
 }
 
-const logger: Logger = createLogger(options)
+export const logger: Logger = createLogger(options)
 
 if (process.env.NODE_ENV !== 'production') {
   logger.debug('Logging initialized at debug level')
 }
-
-export default logger

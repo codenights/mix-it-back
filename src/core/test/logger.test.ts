@@ -1,4 +1,4 @@
-import logger from '../logger'
+import { logger } from '../logger'
 
 describe('Unit | Core | Logger', () => {
   it('should be able to log in debug, info, warn and error', () => {
