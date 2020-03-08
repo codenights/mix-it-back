@@ -6,6 +6,7 @@ import bodyParser from 'koa-bodyparser'
 import morgan from 'koa-morgan'
 
 import config from './config'
+import { errorHandler } from './core'
 import partyModule from './party'
 
 export interface ServerOptions {
@@ -16,6 +17,7 @@ export function createHttpServer(opts: ServerOptions = config): HttpServer | Htt
   const koa = new Koa()
 
   // Register middlewares
+  koa.use(errorHandler())
   koa.use(morgan('dev'))
   koa.use(bodyParser())
   koa.use(cors())

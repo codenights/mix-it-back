@@ -12,7 +12,7 @@
     "start": "npm run serve",
     "build": "npm run build-ts && npm run lint",
     "serve": "nodemon -e js,ts -x \"ts-node bin\"",
-    "test": "jest --detectOpenHandles --coverage --verbose",
+    "test": "jest --forceExit --coverage --verbose",
     "watch-test": "npm run test -- --watchAll",
     "build-ts": "tsc",
     "watch-ts": "tsc -w",
