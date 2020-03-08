@@ -25,6 +25,7 @@ export default function createPartyController(partyRepository: PartyRepository):
       })
       ctx.status = constants.HTTP_STATUS_CREATED
       ctx.body = party
+      ctx.type = 'application/json'
       ctx.set('Location', `/parties/${party.id}`)
     },
 
@@ -32,10 +33,11 @@ export default function createPartyController(partyRepository: PartyRepository):
       const { id } = ctx.params
       const party: Party = await partyRepository.get(id)
       if (!party) {
-        return ctx.throw(constants.HTTP_STATUS_NOT_FOUND, `Party ${id} not found.`)
+        return ctx.throw(constants.HTTP_STATUS_NOT_FOUND, `Party "${id}" not found.`)
       }
       ctx.body = party
       ctx.status = constants.HTTP_STATUS_OK
+      ctx.type = 'application/json'
     }
   }
 }

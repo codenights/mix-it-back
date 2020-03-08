@@ -41,7 +41,6 @@ export function createPartyNamespace(server: Server): Namespace {
           const party: Party = await partyRepository.addSong(partyId, song)
           logger.info(`Added song ${song} to the party ${partyId}`)
           onSongSubmitted?.()
-          console.log(party)
           room().emit('playlist', party.playlist)
         })
 
