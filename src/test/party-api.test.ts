@@ -19,6 +19,9 @@ describe('Integration | API | Host', () => {
     it('201 Created', async () => {
       const { body, status, type } = await request(server)
         .post('/parties')
+        .send({
+          owner: 'user-id'
+        })
         .set('Content-Type', 'application/json')
       expect(status).toBe(201)
       expect(type).toBe('application/json')
@@ -26,6 +29,15 @@ describe('Integration | API | Host', () => {
         id: expect.any(String),
         playlist: []
       })
+    })
+
+    it('400 Bad request - owner required', async () => {
+      const { body, status, type } = await request(server)
+        .post('/parties')
+        .set('Content-Type', 'application/json')
+      expect(status).toBe(400)
+      expect(type).toBe('application/json')
+      expect(body).toStrictEqual({})
     })
   })
 
