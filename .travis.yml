@@ -20,8 +20,8 @@ jobs:
       app: mix-it-back
       on:
         repo: codenights/mix-it-back
-  - stage: Deploy API reference
-    name: API reference
+  - name: API reference
+    if: branch = master
     install: yarn global add redoc-cli
     script:
     - redoc-cli bundle reference/mix-it-api.v1.yaml
@@ -29,12 +29,10 @@ jobs:
     - mv redoc-static.html public/index.html
     deploy:
       provider: pages
+      cleanup: false
       token:
         secure: DZi5mqQcb2aF3SyWiDWDajrWdIHr5L8+ZytU1lVaOhjR33E8Y4Aj9YLJs13c4SJiuMiw5o3IK7+UejDEvAxyd1uSLyfpgGnwZTpaDHJL/3wS72YCUElnstkj2J3X6Th9WJ2wYrZnw0cqTyPRG6DJ8z0zMduM/eXp+k4DKtghwLXxFXkxdHup7JwJxaISkddOiDh4iIEJN1DL0G4sSP7wU+7AZzrBtpBgxGGI9SQj+jrGEtLEXcmmJalOAwbG9xyaFz5ri1bU8fTLCNgt6MhVe6OCQGup062qPRKYk0fOrOikVIoZ97sZrUJ3ol5N8fQQtyiFEFbaU4WsqPEYx024AdENDJwFAMvH5FWAJzstEJ+K3BilRbH8oBjmhbKJlXnyid9eLnpN9JHusEwxyX7TrVHz5E0ikHjC5e2uRJb80IgcPvkxVggDn1NOpNsOqVvAIR7uyrMnwRnI9EyYklPfoFI5Xe4BZYq2f0d8TGVNruRx5/q1C2/3xsicer7ruWtgyP2XvD35PdqjT4hI9kdLH6J/E/q74/xyHKxMoQK8tFBB0eXKnhnABe7KNx9F7jDRitwdcGPQmw1NlXJAWYLiH+wTiORULix2vjMxvIT879inWkmq/XnMSFP2qCUneLrv/+vXjaVq8CZZxDJ5Fdx9RXJF3gXVwXXTyIepqP9JFdg=
       keep_history: true
       local_dir: public
       on:
         branch: docs-add-api-reference
-
-- stages:
-    - Deploy API reference
