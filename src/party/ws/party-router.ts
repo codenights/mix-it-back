@@ -13,7 +13,10 @@ interface PartyJoinOptions {
 
 function makeSafeSongId(song: string): string {
   const res = song.match(/https:\/\/youtu\.be\/([-_a-zA-Z0-9]*)|https:\/\/www\.youtube\.com\/watch\?v=([-_a-zA-Z0-9]*)/)
-  return res[1] || res[2] || song
+  if (res) {
+    return res[1] || res[2]
+  }
+  return song
 }
 
 export function createPartyNamespace(server: Server): Namespace {
@@ -43,9 +46,10 @@ export function createPartyNamespace(server: Server): Namespace {
 
         logger.debug(`Socket ${socket.id} joined the party ${partyId}`)
         socket.on('song:submit', async (song: string, onSongSubmitted?: Function) => {
+          logger.info(`Song received ${song} to the party ${partyId}`)
           const safeSong = makeSafeSongId(song)
           const party: Party = await partyRepository.addSong(partyId, safeSong)
-          logger.info(`Added song ${song} to the party ${partyId}`)
+          logger.info(`Added song ${safeSong} to the party ${partyId}`)
           onSongSubmitted?.()
           room().emit('playlist', party.playlist)
         })
